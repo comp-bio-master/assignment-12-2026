@@ -175,7 +175,7 @@ We will create three functions in `drift.py`, then a fourth function in `simulat
 
 ## 4. Build the population (`drift.py`)
 
-Create `drift.py`. At the top, import Python's standard-library `random` module:
+Use your text editor to create `drift.py`. At the top, import Python's standard-library `random` module:
 
 ```python
 import random
@@ -388,14 +388,16 @@ python3 simulate_drift.py 20 0.0
 
 You should see the generation when fixation occurred, the allele that fixed, and final counts such as `{'AA': 10, 'Aa': 0, 'aa': 0}`. The exact generation and allele for `p=0.5` depend on random chance.
 
-To make a run repeatable, provide a third number:
+To make a run repeatable, provide a third number - the random number seed:
 
 ```bash
 python3 simulate_drift.py 20 0.5 2026
 python3 simulate_drift.py 20 0.5 2026
 ```
 
-The two lines should give **identical** output. You can also make the file executable (optional):
+The two lines should give **identical** output because the seed is set to the same value. 
+
+You can also make the file executable (optional):
 
 ```bash
 chmod +x simulate_drift.py
@@ -409,6 +411,8 @@ chmod +x simulate_drift.py
 ## 8. Test your code: do not just hope it works
 
 Scientific results are only useful when the software producing them is trustworthy. Testing means checking behavior against expected results, including edge cases.
+
+In Python, the `assert` command is used to test whether a condition is true. If the condition is true, Python continues running normally. If it is false, Python stops execution and raises an AssertionError. We can use `assert` to test the code. 
 
 ### 8.1 Run these checks
 
@@ -496,7 +500,7 @@ You are **not** required to make a plot or write another analysis program. Your 
 
 ## 10. Complete `answers.md` and submit your work
 
-**Leave `README.md` unchanged**: it contains the assignment instructions. Put all written responses in `answers.md`, the separate file provided in your assignment repository. Complete these sections:
+Put all written responses in `answers.md`, the separate file provided in your assignment repository. Complete these sections:
 
 - **Planning:** The simulation problem and your outline from Section 1.
 - **Running the program:** Commands to run it, with an example of the output.
@@ -539,12 +543,9 @@ Check your personal GitHub repository in a browser to confirm that the updated f
 | Biological investigation and interpretation | 15 |
 | `answers.md` clarity and GitHub submission | 5 |
 
-### Optional extension (not required)
+### Extra Credit (Worth One Whole Assignment)
 
-Modify your program to save the frequency of allele `A` **at each generation** to a CSV or TSV file. Plot allele frequency against generation number using R (which you already learned), or explain how you would make such a plot. Consider how the trajectories vary among replicates.
+Modify your program to save the frequency of allele `A` **at each generation** to a CSV or TSV file. Plot allele frequency against generation number using either `python` or `R`. Consider how the trajectories vary among replicates.
 
 ---
 
-## Help and references
-
-Before asking for help, note the command you ran, the exact error message, and the smallest input that reproduces the problem. Consult your Lecture 10–11 notes, the [original Lecture 12](https://github.com/tamucc-comp-bio/classroom_repo_2026/blob/main/lectures/lecture12.md), the [Python tutorial on functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions), and the [Python `random` documentation](https://docs.python.org/3/library/random.html). If you use an AI assistant, run and test the code yourself and make sure you can explain what it does.
