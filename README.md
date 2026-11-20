@@ -1,7 +1,6 @@
 # Assignment 12: Writing Good Code — Simulating Genetic Drift
 
-**BIOL 4360 / MARB 6360 · Computational Skills for 21st Century Biologists**  
-**Due:** Wednesday, December 2, 2026 (see the course site for the submission cutoff)  
+  
 **Submit:** Push the required files to your individual Assignment 12 GitHub repository.
 
 > [!IMPORTANT]
@@ -71,7 +70,7 @@ A *function* is a named block of code that can accept inputs, perform an operati
 
 ### 2.1 Calculate GC content
 
-Create `function_practice.py` and enter this function:
+Use a text editor (nano, notepad++, bbedit) to create a file named`function_practice.py` and enter this function:
 
 ```python
 def GCcontent(dna):
@@ -91,7 +90,7 @@ def GCcontent(dna):
     return (numG + numC) / total
 ```
 
-Notice the `def` keyword, the function name, the parameter `dna`, and the `return` statement. Unlike `print()`, `return` makes a value available to other parts of a program. The `if` statement also prevents division by zero if a sequence contains no A, C, G, or T.
+Notice the `def` keyword, the function name `GCcontent`, the parameter `dna`, and the `return` statement. Unlike `print()`, `return` makes a value available to other parts of a program. The `if` statement also prevents division by zero if a sequence contains no A, C, G, or T.
 
 Run your code in an interactive Python session from the repository directory:
 
@@ -115,7 +114,7 @@ The results should match. Exit Python using `Ctrl-D` (on macOS/Linux) or `exit()
 
 ### 2.2 Write a second function yourself
 
-In `function_practice.py`, create a function called `squared(start=1, end=10)` that:
+In the file you made above, `function_practice.py`, create a function called `squared(start=1, end=10)` that:
 
 1. Creates an empty list.
 2. Uses a `for` loop with `range(start, end)`.
@@ -134,13 +133,13 @@ The default values should allow these commands to work:
 [1, 4]
 ```
 
-**Checkpoint 1:** Both functions run from an interactive Python session, produce the expected results, and are saved in `function_practice.py`. Add a short note to your README explaining the difference between `print` and `return`.
+**Checkpoint 1:** Both functions run from an interactive Python session, produce the expected results, and are saved in `function_practice.py`. Add a short note to the **Function practice** section of `answers.md` explaining the difference between `print` and `return`.
 
 ---
 
-## 3. The biological problem: genetic drift
+## 3. The biological problem: [genetic drift](https://en.wikipedia.org/wiki/Genetic_drift)
 
-We will simulate a simplified **Wright–Fisher model** to investigate how chance alone can change allele frequencies through time.
+We will use a simplified **[Wright–Fisher simulation](https://en.wikipedia.org/wiki/Genetic_drift#Wright.E2.80.93Fisher_model)** to investigate how chance alone can change allele frequencies through time.
 
 Assume that:
 
@@ -150,7 +149,7 @@ Assume that:
 - Each new individual receives one allele chosen at random from each of two parents. Parents are chosen at random **with replacement** from the previous generation.
 - The population size is constant. Generations do not overlap. There is no mutation, migration, or selection.
 
-We will follow the population until an allele becomes **fixed**: all individuals have genotype `AA`, or all have genotype `aa`.
+We will follow the population until an allele becomes **fixed**: all individuals have [genotype](https://en.wikipedia.org/wiki/Genotype) `AA`, or all have genotype `aa`.
 
 ### 3.1 Choose a data structure
 
@@ -211,13 +210,13 @@ The genotypes will vary from run to run because the model uses random numbers. Y
 
 Try `drift.build_population(5, 1.0)` and `drift.build_population(5, 0.0)`. What genotypes should each produce? Do you get the expected result?
 
-**Checkpoint 2:** Explain in your README why two calls with `N=10, p=0.5` usually produce different populations, and why the results with `p=0` or `p=1` do not vary.
+**Checkpoint 2:** Explain in `answers.md` why two calls with `N=10, p=0.5` usually produce different populations, and why the results with `p=0` or `p=1` do not vary.
 
 ## 5. Count genotypes (`drift.py`)
 
 Now write a second function in the same file, called `count_genotypes(population)`.
 
-The function must return a dictionary with **exactly these keys**: `"AA"`, `"Aa"`, and `"aa"`. The values are integer counts. Both forms of the heterozygote (`("A", "a")` and `("a", "A")`) count as `"Aa"`.
+The function must return a dictionary with **exactly these keys**: `"AA"`, `"Aa"`, and `"aa"`. The values are integer **[genotypic](https://en.wikipedia.org/wiki/Genotype) counts**, not frequencies. Both forms of the heterozygote (`("A", "a")` and `("a", "A")`) count as `"Aa"`.
 
 You can use the list method `.count()` to count a particular tuple. For example:
 
@@ -464,9 +463,9 @@ python3 simulate_drift.py 10 1.5
 python3 simulate_drift.py banana 0.5
 ```
 
-Each should stop with an informative error instead of producing a simulation result. You may copy the error message into your README if it helps explain the test.
+Each should stop with an informative error instead of producing a simulation result. You may copy the error message into `answers.md` if it helps explain the test.
 
-**Checkpoint 6:** In the **Testing** section of your README, state whether the checks passed, report one error you encountered (or an edge case you deliberately tested), and explain what you did or learned. Do not submit code with failing tests without explaining the issue.
+**Checkpoint 6:** In the **Testing** section of your `answers.md`, state whether the checks passed, report one error you encountered (or an edge case you deliberately tested), and explain what you did or learned. Do not submit code with failing tests without explaining the issue.
 
 ---
 
@@ -485,7 +484,7 @@ Conduct **10 independent replicate simulations** for each of these scenarios:
 
 Run the program 10 times for each population size; do **not** reuse the same seed for all replicates. You can omit the seed argument or use a different integer seed for each run. Record the generation at fixation for every run.
 
-In your README, include a small table listing the 10 fixation times for each scenario, summarize the typical fixation time (mean or median), and answer these questions:
+In `answers.md`, include a small table listing the 10 fixation times for each scenario, summarize the typical fixation time (mean or median), and answer these questions:
 
 1. Which population size tended to reach fixation sooner in your simulations?
 2. Did every simulation have the same fixation time? Why or why not?
@@ -495,9 +494,9 @@ You are **not** required to make a plot or write another analysis program. Your 
 
 ---
 
-## 10. Document and submit your work
+## 10. Complete `answers.md` and submit your work
 
-Your `README.md` should contain these short sections:
+**Leave `README.md` unchanged**: it contains the assignment instructions. Put all written responses in `answers.md`, the separate file provided in your assignment repository. Complete these sections:
 
 - **Planning:** The simulation problem and your outline from Section 1.
 - **Running the program:** Commands to run it, with an example of the output.
@@ -506,13 +505,13 @@ Your `README.md` should contain these short sections:
 - **Testing:** Confirmation of the checks and a brief description of an error or edge case.
 - **Biological investigation:** Your replicate results, typical fixation times, and answers to the three questions.
 
-Do not paste all your Python code into the README: it belongs in the `.py` files. Write enough documentation so that another student could clone your repository and run your program.
+Do not paste all your Python code into `answers.md`: it belongs in the `.py` files. Explain enough that another student could clone your repository, run your program, and understand your interpretation. **Do not delete, overwrite, or edit `README.md`.**
 
 From Bash, verify which files you changed and push everything to GitHub:
 
 ```bash
 git status
-git add README.md function_practice.py drift.py simulate_drift.py
+git add answers.md function_practice.py drift.py simulate_drift.py
 git commit -m "Complete Assignment 12 genetic drift simulation"
 git push
 ```
@@ -525,7 +524,8 @@ Check your personal GitHub repository in a browser to confirm that the updated f
 - [ ] `drift.py` contains `build_population`, `count_genotypes`, and `reproduce_population`.
 - [ ] `simulate_drift.py` runs with `N`, `p`, and an optional seed from Bash.
 - [ ] Tests pass, including starting frequencies of 0 and 1.
-- [ ] `README.md` contains the planning, testing, explanation, and biological investigation.
+- [ ] `answers.md` contains the planning, testing, explanation, and biological investigation.
+- [ ] `README.md` still contains the original assignment instructions and has not been modified.
 - [ ] All files are committed and pushed to your individual GitHub repository by the due date.
 
 ### How the assignment will be evaluated (100 points)
@@ -537,7 +537,7 @@ Check your personal GitHub repository in a browser to confirm that the updated f
 | Working command-line simulation | 20 |
 | Tests and edge-case discussion | 15 |
 | Biological investigation and interpretation | 15 |
-| README clarity and GitHub submission | 5 |
+| `answers.md` clarity and GitHub submission | 5 |
 
 ### Optional extension (not required)
 
